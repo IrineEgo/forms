@@ -14,8 +14,15 @@
     <h2>Список тестов:</h2>
     <?php if (!empty($allFiles)): ?>
         <?php foreach ($allFiles as $file): ?>
+
+            <?php
+
+            $file_data = json_decode(file_get_contents($file));
+
+            ?>
+
             <div>
-                <h3><?php echo str_replace('tests/', '', $file); ?></h3><br>
+                <h3><?=$file_data->name?></h3>
                 <a href="test.php?number=<?php echo array_search($file, $allFiles); ?>">ПРОЙТИ ТЕСТ >></a>
             </div>
             <hr>
